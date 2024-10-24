@@ -1,0 +1,114 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001c77f0e51b0 .scope module, "testbench" "testbench" 2 2;
+ .timescale 0 0;
+v000001c77f12d800_0 .var "a", 0 0;
+v000001c77f12d8a0_0 .var "b", 0 0;
+v000001c77f12d4e0_0 .var "c", 0 0;
+v000001c77f12d1c0_0 .net "y", 0 0, L_000001c77f12e790;  1 drivers
+S_000001c77f0e5340 .scope task, "display" "display" 2 29, 2 29 0, S_000001c77f0e51b0;
+ .timescale 0 0;
+TD_testbench.display ;
+    %delay 1, 0;
+    %vpi_call 2 30 "$display", "a = %0b, b = %0b, c = %0b equals y = %0b", v000001c77f12d800_0, v000001c77f12d8a0_0, v000001c77f12d4e0_0, v000001c77f12d1c0_0 {0 0 0};
+    %end;
+S_000001c77f0963b0 .scope module, "dut" "minority" 2 6, 3 1 0, S_000001c77f0e51b0;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "c";
+    .port_info 3 /OUTPUT 1 "y";
+L_000001c77f0d6270 .functor NOT 1, v000001c77f12d800_0, C4<0>, C4<0>, C4<0>;
+L_000001c77f12e720 .functor NOT 1, v000001c77f12d4e0_0, C4<0>, C4<0>, C4<0>;
+L_000001c77f12e5d0 .functor AND 1, L_000001c77f0d6270, L_000001c77f12e720, C4<1>, C4<1>;
+L_000001c77f12e2c0 .functor NOT 1, v000001c77f12d800_0, C4<0>, C4<0>, C4<0>;
+L_000001c77f12e560 .functor NOT 1, v000001c77f12d8a0_0, C4<0>, C4<0>, C4<0>;
+L_000001c77f12e6b0 .functor AND 1, L_000001c77f12e2c0, L_000001c77f12e560, C4<1>, C4<1>;
+L_000001c77f12e250 .functor OR 1, L_000001c77f12e5d0, L_000001c77f12e6b0, C4<0>, C4<0>;
+L_000001c77f12e640 .functor NOT 1, v000001c77f12d8a0_0, C4<0>, C4<0>, C4<0>;
+L_000001c77f12e330 .functor NOT 1, v000001c77f12d4e0_0, C4<0>, C4<0>, C4<0>;
+L_000001c77f12e170 .functor AND 1, L_000001c77f12e640, L_000001c77f12e330, C4<1>, C4<1>;
+L_000001c77f12e790 .functor OR 1, L_000001c77f12e250, L_000001c77f12e170, C4<0>, C4<0>;
+v000001c77f0d61d0_0 .net *"_ivl_0", 0 0, L_000001c77f0d6270;  1 drivers
+v000001c77f0e54d0_0 .net *"_ivl_10", 0 0, L_000001c77f12e6b0;  1 drivers
+v000001c77f0e5570_0 .net *"_ivl_12", 0 0, L_000001c77f12e250;  1 drivers
+v000001c77f096540_0 .net *"_ivl_14", 0 0, L_000001c77f12e640;  1 drivers
+v000001c77f0965e0_0 .net *"_ivl_16", 0 0, L_000001c77f12e330;  1 drivers
+v000001c77f096680_0 .net *"_ivl_18", 0 0, L_000001c77f12e170;  1 drivers
+v000001c77f12db20_0 .net *"_ivl_2", 0 0, L_000001c77f12e720;  1 drivers
+v000001c77f12d6c0_0 .net *"_ivl_4", 0 0, L_000001c77f12e5d0;  1 drivers
+v000001c77f12d9e0_0 .net *"_ivl_6", 0 0, L_000001c77f12e2c0;  1 drivers
+v000001c77f12dc60_0 .net *"_ivl_8", 0 0, L_000001c77f12e560;  1 drivers
+v000001c77f12d760_0 .net "a", 0 0, v000001c77f12d800_0;  1 drivers
+v000001c77f12d3a0_0 .net "b", 0 0, v000001c77f12d8a0_0;  1 drivers
+v000001c77f12d080_0 .net "c", 0 0, v000001c77f12d4e0_0;  1 drivers
+v000001c77f12d120_0 .net "y", 0 0, L_000001c77f12e790;  alias, 1 drivers
+    .scope S_000001c77f0e51b0;
+T_1 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001c77f12d800_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001c77f12d8a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001c77f12d4e0_0, 0, 1;
+    %delay 10, 0;
+    %fork TD_testbench.display, S_000001c77f0e5340;
+    %join;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001c77f12d4e0_0, 0, 1;
+    %delay 10, 0;
+    %fork TD_testbench.display, S_000001c77f0e5340;
+    %join;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001c77f12d4e0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001c77f12d8a0_0, 0, 1;
+    %delay 10, 0;
+    %fork TD_testbench.display, S_000001c77f0e5340;
+    %join;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001c77f12d4e0_0, 0, 1;
+    %delay 10, 0;
+    %fork TD_testbench.display, S_000001c77f0e5340;
+    %join;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001c77f12d800_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001c77f12d8a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001c77f12d4e0_0, 0, 1;
+    %delay 10, 0;
+    %fork TD_testbench.display, S_000001c77f0e5340;
+    %join;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001c77f12d4e0_0, 0, 1;
+    %delay 10, 0;
+    %fork TD_testbench.display, S_000001c77f0e5340;
+    %join;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001c77f12d4e0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001c77f12d8a0_0, 0, 1;
+    %delay 10, 0;
+    %fork TD_testbench.display, S_000001c77f0e5340;
+    %join;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001c77f12d4e0_0, 0, 1;
+    %delay 10, 0;
+    %fork TD_testbench.display, S_000001c77f0e5340;
+    %join;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "./minority.v";
